@@ -5,14 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kegnh</title>
+    <script src="jquery-3.5.1.min.js"></script>
     <script>
 var url = window.location.search
-if (url.indexOf('?') != -1) {
-    window.location.href = url.replace("?", "");
-}
 
 function get_random() {
     return Math.random().toString(32).substring(2, 7);
+}
+
+function send_request(endpoint, url, short) {
+    this.url = url;
+    $.ajax({
+        'url': endpoint + "/" + short,
+        'type': 'POST',
+        'data': JSON.stringify(this.url),
+        'dataType': 'json',
+        'contentType': 'application/json; charset=utf-8'
+    })
+}
+
+if (url.indexOf('?') != -1) {
+    window.location.href = url.replace("?", "");
+} else {
+    var short = get_random();
+    if (url.indexOf('http') == -1) {
+        url = "http://" + url;
+    }
+    send_request("https://api.npoint.io/9d12e67a0642b4ee22d2", url, short);
 }
     </script>
 </head>
