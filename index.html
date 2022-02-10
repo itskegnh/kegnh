@@ -20,7 +20,7 @@ function send_request(endpoint, url, short) {
         url: endpoint + "/" + short,
         data: JSON.stringify(this.url),
         success: function(result){
-            console.log("done!");
+            console.log(result);
         },
         dataType: "json"
     });
