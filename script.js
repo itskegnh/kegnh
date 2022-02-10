@@ -1,2 +1,3 @@
-const selector = window.location.search.replace("?","")
-window.herf = selector;
+const selector = window.location.search.replace("?","");
+console.log(selector);
+window.location.href = selector;
