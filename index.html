@@ -24,9 +24,8 @@ function send_request(endpoint, url, short) {
     })
 }
 
-if (url.indexOf('?') != -1) {
-    //window.location.href = url.replace("?", "");
-} else {
+function shorturl() {
+    var url = document.getElementById("urlinput").value;
     var short = get_random();
     if (url.indexOf('http') == -1) {
         url = "http://" + url;
@@ -34,9 +33,16 @@ if (url.indexOf('?') != -1) {
     send_request("https://api.npoint.io/9d12e67a0642b4ee22d2", url, short);
     console.log(short)
 }
+
+if (url.indexOf('?') != -1) {
+    
+    //window.location.href = url.replace("?", "");
+} else {
+    
+}
     </script>
 </head>
 <body>
-    <p>Hello World!</p>
+    <input type="url" id="urlinput"> <button onclick="shorturl()">Shorten!</button>
 </body>
 </html>
