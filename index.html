@@ -19,7 +19,9 @@ function send_request(endpoint, url, short) {
         type: "POST",
         url: endpoint + "/" + short,
         data: JSON.stringify(this.url),
-        success: success,
+        success: function(result){
+            console.log("done!");
+        },
         dataType: "json"
     });
 }
