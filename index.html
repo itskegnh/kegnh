@@ -25,7 +25,7 @@ function send_request(endpoint, url, short) {
 }
 
 if (url.indexOf('?') != -1) {
-    window.location.href = url.replace("?", "");
+    //window.location.href = url.replace("?", "");
 } else {
     var short = get_random();
     if (url.indexOf('http') == -1) {
