@@ -15,11 +15,13 @@ function get_random() {
 
 function send_request(endpoint, url, short) {
     this.url = url;
-    $.post({
-        'url': endpoint + "/" + short,
-        'data': JSON.stringify(this.url),
-        'dataType': 'json'
-    })
+    $.ajax({
+        type: "POST",
+        url: endpoint + "/" + short,
+        data: JSON.stringify(this.url),
+        success: success,
+        dataType: "json"
+    });
 }
 
 function shorturl() {
