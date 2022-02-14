@@ -7,6 +7,7 @@
     <title>The Button</title>
     <script>
         var clicks = 0
+        setTimeout(() => {document.getElementById("prize") = window.location.search.substring(1)}, 1000)
         function buttonClick() {
             clicks ++;
             if (clicks >= 100) {
@@ -41,7 +42,7 @@
 </head>
 <body>
     <div class="center">
-        <h1>Win $10!</h1>
+        <h1>Win <span id="prize"></span>$10!</h1>
         <p id="header">Gain 100 clicks to recive prize!</p>
         <button id="button" onclick="buttonClick()">    
             Click Here!
