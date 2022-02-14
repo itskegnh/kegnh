@@ -88,9 +88,14 @@
                 clicks = 99;
                 window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus()
             }
-            document.getElementById("clicks").innerHTML = clicks;
+            document.getElementById("clicks").innerText = clicks;
             document.getElementById("button").style.left = randomNumber(5, 80) + "%";
             document.getElementById("button").style.top = randomNumber(5, 80) + "%";
+        }
+        function antiCheat() {
+            if (clicks >= 100) {
+                clicks = 99;
+            } document.getElementById("clicks").innerText = clicks;
         }
     </script>
 </head>
