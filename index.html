@@ -4,64 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kegnh</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <title>The Button</title>
     <script>
-
-
-var url = window.location.search
-
-function get_random() {
-    return Math.random().toString(32).substring(2, 7);
-}
-
-function send_request(endpoint, url, short) {
-    $.ajax({
-        type: "POST",
-        url: endpoint + "/" + short,
-        data: JSON.stringify(url), // now data come in this function
-        contentType: "application/json; charset=utf-8",
-        crossDomain: true,
-        dataType: "json",
-        success: function (data, status, jqXHR) {
-            alert("success");// write success in " "
-    },  error: function (jqXHR, status) {
-        // error handler
-        console.log(jqXHR);
-        alert('fail' + status.code);
-    }
-    });
-    // this.url = url;
-    // $.ajax({
-    //     type: "POST",
-    //     url: endpoint + "/" + short,
-    //     data: JSON.stringify(this.url),
-    //     success: function(result){
-    //         console.log(result);
-    //     },
-    //     dataType: "json"
-    // });
-}
-
-function shorturl() {
-    var url = document.getElementById("urlinput").value;
-    var short = get_random();
-    if (url.indexOf('http') == -1) {
-        url = "http://" + url;
-    }
-    send_request("https://api.npoint.io/9d12e67a0642b4ee22d2", url, short);
-    console.log(short)
-}
-
-if (url.indexOf('?') != -1) {
-    
-    //window.location.href = url.replace("?", "");
-} else {
-    
-}
+        var clicks = 0
+        function buttonClick() {
+            clicks ++;
+            if (clicks >= 100) {
+                clicks = 99;
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus();
+            } document.getElementById("clicks").innerText = clicks;
+        }
     </script>
+    <style>
+        body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+
+        .center {
+            margin-top: 10rem;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            text-align: center
+        }
+
+        .button {
+            padding: 10px
+        }
+
+        #header {
+            margin-bottom: 75px;
+            margin-top: -15px;
+        }
+    </style>
 </head>
 <body>
-    <input type="url" id="urlinput"> <button onclick="shorturl()">Shorten!</button>
+    <div class="center">
+        <h1>Win $10!</h1>
+        <p id="header">Gain 100 clicks to recive prize!</p>
+        <button class="button" onclick="buttonClick()">    
+            Click Here!
+        </button>
+        <p>You have: <span id="clicks">0</span> clicks.</p>
+    </div>
 </body>
 </html>
