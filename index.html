@@ -10,9 +10,11 @@
         function buttonClick() {
             clicks ++;
             if (clicks >= 100) {
+                document.getElementById("button").style.cursor = "disabled";
                 clicks = 99;
                 window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus();
             } document.getElementById("clicks").innerText = clicks;
+            
         }
     </script>
     <style>
@@ -28,7 +30,7 @@
             text-align: center
         }
 
-        .button {
+        #button {
             padding: 10px
         }
 
@@ -42,7 +44,7 @@
     <div class="center">
         <h1>Win $10!</h1>
         <p id="header">Gain 100 clicks to recive prize!</p>
-        <button class="button" onclick="buttonClick()">    
+        <button id="button" onclick="buttonClick()">    
             Click Here!
         </button>
         <p>You have: <span id="clicks">0</span> clicks.</p>
