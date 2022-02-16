@@ -182,7 +182,7 @@
     </ul>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script defer>$(document).on('click', 'a[href^="#"]', function (event) {
-        window.onload = () => {
+        window.onload = function() {
             var age  = new Date().getFullYear() - 2007;
             document.getElementById("age-span").innerHTML = age;
         }
