@@ -182,15 +182,17 @@
     </ul>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script defer>$(document).on('click', 'a[href^="#"]', function (event) {
+        window.onload = () => {
+            var age  = new Date().getFullYear() - 2007;
+            document.getElementById("age-span").innerHTML = age;
+        }
+        
         event.preventDefault();
     
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 500);
     });
-    
-    var age  = new Date().getFullYear() - 2007;
-    document.getElementById("age-span").innerHTML = age;
     </script>
     <!-- <script src="index.js" defer></script> -->
 </head>
