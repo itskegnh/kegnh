@@ -3,19 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>kegnh</title>
-    <style>
-        .center {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>body {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgb(75, 75, 75);
+        color: white;
+        margin: auto;
+        top: 100rem;
+    }
+    
+    .header {
+        margin-top: auto;
+        background-color: rgb(35, 35, 35);
+        padding: 1.5vw;
+        /* border-bottom: 3px solid black; */
+        box-shadow: 0px 0px 30px rgb(10, 10, 10);
+        display: flex;
+        align-items: center;
+        top:0;
+        width:100%;
+        height:50px;
+        position: fixed;
+        z-index: 1;
+    }
+    
+    .header * {
+        text-decoration: none;
+        list-style: none;
+        color: white;
+        display: inline;
+        transition: 0.5s;
+    }
+    
+    .textbtn {
+        transition: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-left: 1vw;
+        transition: 0.5s;
+        height: 100%;
+        border-radius: 0px;
+        text-align: center;
+    }
+    
+    .textbtn * {
+        text-align: center;
+    }
+    
+    .textbtn:hover {
+        text-decoration: underline;
+        /* background-color: rgb(15, 15, 15); */
+        box-shadow: 0 0 10px rgb(10, 10, 10);
+        height: 100%;
+        border-radius: 50px;
+    }
+    
+    .header:first-child * {
+        margin-right: 1vw;
+    }
+    
+    .iconbtn * {
+        width: 3vw;
+        padding: auto;
+        margin: auto;
+        box-shadow: none;
+        fill: white;
+        transform: translate(0, 0vh);
+        transition: 0.3s;
+        position: relative;
+    }
+    
+    .iconbtn *:hover {
+        transform: translate(0, -1vh);
+    }
+    
+    .iconbtn {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .iconbtn:after {
+        opacity: 0;
+        content: "";
+        position: absolute;
+        background-color: white;
+        width: .5vw;
+        height: .5vw;
+        transform: translate(-0.5vw);
+        border-radius: 5px;
+        bottom: 1.5vh;
+        transition: 0.5s;
+        
+    }
+    
+    .iconbtn:hover:after {
+        opacity: 1;
+    }
+    
+    #lasticonbtn:after {
+        transform: translate(-0.95vw);
+    }
+    
+    .logo {
+        border-radius: 30px;
+        width: 4vw;
+        padding: auto;
+        margin: auto;
+        box-shadow: none;
+    }
+    
+    .logo:hover {
+        border-radius: 10px;
+        box-shadow: 0 0px 15px 0 rgb(0, 0, 0);
+    }
+    .welcome-panel {
+        padding: none;
+        /* padding-left: 10vw; */
+        margin: auto;
+        margin-top: 12rem;
+        font-size: 3vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .welcome-panel * {
+        color: white;
+        margin: auto;
+    }
+    
+    .pfp {
+        border-radius: 100px;
+        margin: 5vw;
+    }
+    
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        box-shadow: inset 0 0 5px grey; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(35, 35, 35); 
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(25, 25, 25); 
+    }
+    
+    #contact {
+        margin: auto; font-size: 2rem; background-color: rgb(35, 35, 35); padding: 2vh 2vw; border-radius: 10vw; text-decoration: none; box-shadow: 0 0 25px black; transform: translate(0, -50%);
+        transition: 0.3s;
+        z-index: 0;
+    }
+    
+    #contact:hover {
+        background-color: rgb(30, 30, 30);
+    }</style>
+    <ul class="header">
+        <li><a href="#home"><img src="pfp.png" alt="logo" class="logo"></a></li>
+        <li class="textbtn"><a href="#about">About</a></li>
+        <li class="textbtn"><a href="#proficiency">Proficiency</a></li>
+        <li style="margin-left: auto;"><a class="iconbtn" href="https://github.com/itskegnh/"><img src="github.png" alt="github" style="fill: white;"></a></li>
+        <li><a class="iconbtn" onclick="alert('kegnh#1234')" href=""><img src="discord.png" alt="discord"></a></li>
+        <li><a class="iconbtn" id="lasticonbtn" href="https://twitter.com/itskegnh/"><img src="twitter.png" alt="twitter" style="margin-right: 2vw"></a></li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script defer>$(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+    
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
+    
+    var age  = new Date().getFullYear() - 2007;
+    document.getElementById("age-span").innerHTML = age;
+    </script>
+    <!-- <script src="index.js" defer></script> -->
 </head>
 <body>
-    <div class="center">
-        <h1>I'm too lazy to make a homepage rn.</h1>
-    </div>
+    <section style="margin: auto; padding-top: 9vh; padding-bottom: 5vh; background-color: rgb(50, 50, 50); box-shadow: 0 0px 25px black;">
+        <div id="home" style="display: block; position: relative; top: -10vw; visibility: hidden;"></div>
+        <div class="welcome-panel">
+            <div style="margin: auto; padding: auto; width: 100%; display: grid;">
+                <div id="welcome-panel-child" style="display: flex; width: 66%;">
+                    <img src="pfp.png" alt="pfp" class="pfp">
+                    <div>
+                        <h6>Hello, World!</h6>
+                        <h1>I'm William,</h1>
+                        <h6>a backend developer.</h6>
+                    </div>
+                </div>
+                <!-- <a id="contact" href="">Contact</a> -->
+            </div>
+        </div>
+        <a href="#about" style="text-decoration: none; color: white;">
+            <div class="more" style="display: grid; transition: 0.3s; opacity: 1; margin-top: 15vh">
+                <p style="margin: auto; font-size: 1.3rem;">Find out more</p>
+                <svg style="fill: white; margin: auto;" swidth="50px" height="50px" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17-7.6 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15z"/><path d="M25 34.4l-9.7-9.7 1.4-1.4 8.3 8.3 8.3-8.3 1.4 1.4z"/><path d="M24 16h2v17h-2z"/></svg>
+            </div>
+        </a>
+    </section>
+
+
+    <section style="margin-top: 0vw;">
+        <div id="about" style="display: block; position: relative; top: -7vw; visibility: hidden;"></div>
+        <div style="box-shadow: 0 0 25px rgb(50, 50, 50); display: flex; align-items: center; margin: 3vw 15vw; padding: 2vw; border: 7px solid white; border-radius: 50px;">
+            <?xml version="1.0" encoding="iso-8859-1"?><svg style="float: left; fill: white; margin: 0px 1vw; width: 10vw;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 315 315" style="enable-background:new 0 0 315 315;" xml:space="preserve"><path d="M157.5,0C93.319,0,41.103,52.215,41.103,116.397c0,62.138,106.113,190.466,110.63,195.898c1.425,1.713,3.538,2.705,5.767,2.705c2.228,0,4.342-0.991,5.767-2.705c4.518-5.433,110.63-133.76,110.63-195.898C273.897,52.215,221.682,0,157.5,0z M157.5,295.598c-9.409-11.749-28.958-36.781-48.303-65.397c-34.734-51.379-53.094-90.732-53.094-113.804C56.103,60.486,101.59,15,157.5,15c55.91,0,101.397,45.486,101.397,101.397c0,23.071-18.359,62.424-53.094,113.804C186.457,258.817,166.909,283.849,157.5,295.598z"/><path d="M195.657,213.956c-3.432-2.319-8.095-1.415-10.413,2.017c-10.121,14.982-21.459,30.684-33.699,46.67c-2.518,3.289-1.894,7.996,1.395,10.514c1.36,1.042,2.963,1.546,4.554,1.546c2.254,0,4.484-1.013,5.96-2.941c12.42-16.22,23.933-32.165,34.219-47.392C199.992,220.938,199.09,216.275,195.657,213.956z"/><path d="M157.5,57.5C123.589,57.5,96,85.089,96,119s27.589,61.5,61.5,61.5S219,152.911,219,119S191.411,57.5,157.5,57.5zM157.5,165.5c-25.64,0-46.5-20.86-46.5-46.5s20.86-46.5,46.5-46.5c25.641,0,46.5,20.86,46.5,46.5S183.141,165.5,157.5,165.5z"/></svg>
+            <div style="display: flex; width: 100%; height: 100%; margin: auto; justify-content: center;">
+                <h1 style="margin: auto;">Location: South East Queensland</h1>
+            </div>
+        </div>
+        <div style="box-shadow: 0 0 25px rgb(50, 50, 50); display: flex; align-items: center; margin: 3vw 15vw; padding: 2vw; border: 7px solid white; border-radius: 50px;">
+            <svg stroke-width="1" stroke="white" style="float: left; margin: 0px 1vw; width: 10vw; height: 10vw" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <circle cx="8" cy="6" r="3.25"/>
+                <path d="m2.75 14.25c0-2.5 2-5 5.25-5s5.25 2.5 5.25 5"/>
+                </svg>
+            <div style="display: flex; width: 100%; height: 100%; margin: auto; justify-content: center;">
+                <h1 style="margin: auto;">Age: <span id="age-span">???</span> (2007)</h1>
+            </div>
+        </div>
+        <div style="box-shadow: 0 0 25px rgb(50, 50, 50); display: flex; align-items: center; margin: 3vw 15vw; padding: 2vw; border: 7px solid white; border-radius: 50px;">
+            <svg style="float: left; margin: 0px 1vw; width: 10vw; height: 10vw; fill: white" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c3.976 0 8-1.374 8-4V6c0-2.626-4.024-4-8-4S4 3.374 4 6v12c0 2.626 4.024 4 8 4zm0-2c-3.722 0-6-1.295-6-2v-1.268C7.541 17.57 9.777 18 12 18s4.459-.43 6-1.268V18c0 .705-2.278 2-6 2zm0-16c3.722 0 6 1.295 6 2s-2.278 2-6 2-6-1.295-6-2 2.278-2 6-2zM6 8.732C7.541 9.57 9.777 10 12 10s4.459-.43 6-1.268V10c0 .705-2.278 2-6 2s-6-1.295-6-2V8.732zm0 4C7.541 13.57 9.777 14 12 14s4.459-.43 6-1.268V14c0 .705-2.278 2-6 2s-6-1.295-6-2v-1.268z"/></svg>
+            <div style="display: flex; width: 100%; height: 100%; margin: auto; justify-content: center;">
+                <h1 style="margin: auto;">Primary: Backend (Python)</h1>
+            </div>
+        </div>
+    </section>
+    <!-- Python, C++, GDScript, C#, JS, TS, CSS, HTML, Lua, C, SQL -->
+    <!-- Python, C++, C, SQL, GDScript, JS, TS, HTML, C#, Lua, CSS -->
+    <section style="margin: auto; padding-top: 10vh; padding-bottom: 5vw; background-color: rgb(50, 50, 50); box-shadow: 0 0px 25px black;">
+        <div id="proficiency" style="display: block; position: relative; top: -10vw; visibility: hidden;"></div>
+        
+    </section>
+    <section style="margin-top: 0vw;">
+        <div id="portfolio" style="display: block; position: relative; top: -7vw; visibility: hidden;"></div>
+    </section>
 </body>
 </html>
