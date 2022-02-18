@@ -87,7 +87,8 @@
             clicks++;
             if (clicks >= 100) {
                 clicks = 99;
-                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus()
+                // window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank').focus()
+                document.getElementById("button").hidden = true;
             }
             document.getElementById("clicks").innerText = clicks;
             document.getElementById("button").style.left = randomNumber(5, 80) + "%";
